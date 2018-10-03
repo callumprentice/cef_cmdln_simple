@@ -192,11 +192,13 @@ class CefMinimal : public CefApp
 
                 ////////////////////////////////////////////////////////////////////////////////////////
                 //
-                //  This stanza of code, when introduced, triggers an exception in libcef.dll.
+                //  This stanza of code, when introduced, triggers an exception in libcef.dll
+                //  laster on in this app (exact point undetermined but well after this code runs)
+                //
                 //  Specifically, when manager->SetStoragePath(cookie_path, persist_session_coookies, nullptr);
                 //  is invoked, navigating to a page with cookies, triggers the exception.
                 //
-#if 0
+#if 1
                 CefRefPtr<CefCookieManager> manager = CefCookieManager::GetGlobalManager(nullptr);
                 if (manager)
                 {
